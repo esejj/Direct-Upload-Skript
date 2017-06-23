@@ -1,1 +1,26 @@
-. // skrypt
+# [ // skrypt \\ ]
+# made by: imxkvpi ?
+
+command /wgrajskrypt <text> <text>:
+	permission: wgrajskrypt.use
+	permission message: &cNie posiadasz uprawnien.
+	aliases: /ws, /wgraj
+	trigger:
+		if argument 1 is set:
+			if argument 2 is set:
+				if file "plugins/skript/scripts/%argument 2%.sk" doesn't exists:
+					create file "plugins/skript/scripts/%argument 2%.sk"
+					send "&8• &3» &6Utworzono plik. &8(%argument 2%.sk&8) &3« &8•" to the player
+				if argument 1 contain "https://":
+					download from "%argument 1%" to "plugins/skript/scripts/%argument 2%.sk"
+					load script from "plugins/skript/scripts/%argument 2%.sk"
+					send "&8• &3» &6Skrypt zostal pomyslnie wgrany. &3« &8•" to the player
+				else:
+					send "&8• &3» &c&lTo nie jest link. &8(&6Link musi zawierac: &c'https://'&8) &3« &8•" to the player
+			else:
+				send "&8• &3» &cMusisz podac nazwe skryptu &3« &8•" to the player
+		else:
+			send "&8• &3» &4Uzyj: &c/wgrajskrypt &8<&clink&8> &8<&cnazwa skryptu&8>" to the player
+		if argument 1 is "author" or "autor":
+			send "&8• &3» &6Skrypt zostal stworzony przez &3imxkvpi &3« &8•" to the player
+			stop
