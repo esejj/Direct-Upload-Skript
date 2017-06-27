@@ -1,10 +1,10 @@
 # [ // skrypt \\ ]
 # made by: imxkvpi ?
 
-command /wgrajskrypt <text> <text>:
-	permission: wgrajskrypt.use
+command /imxkvpi:wgrajskrypt <text> <text>:
+	permission: imxkvpi.wgrajskrypt.command
 	permission message: &cNie posiadasz uprawnien.
-	aliases: /ws, /wgraj
+	aliases: /ws, /wgraj, /wgrajskrypt
 	trigger:
 		if argument 1 is set:
 			if argument 2 is set:
@@ -23,4 +23,16 @@ command /wgrajskrypt <text> <text>:
 			send "&8• &3» &4Uzyj: &c/wgrajskrypt &8<&clink&8> &8<&cnazwa skryptu&8>" to the player
 		if argument 1 is "author" or "autor":
 			send "&8• &3» &6Skrypt zostal stworzony przez &3imxkvpi &3« &8•" to the player
+			stop
+command /imxkvpi:usunskrypt <text>:
+	permission: imxkvpi.usunskrypt.command
+	permission message: &cNie posiadasz uprawnien
+	aliases: /us, /usunskrypt
+	trigger:
+		if file "plugins/skript/scripts/%argument 1%.sk" exists:
+			delete file "plugins/skript/scripts/%argument 1%.sk"
+			send "&8• &3» &6Pomyslnie &cusunieto &6skrypt&8. &3« &8•" to the player
+			stop
+		else:
+			send "&8• &3» &cNiestety nie wykryto owego skryptu" to the player
 			stop
