@@ -1,17 +1,21 @@
-# [ // skrypt \\ ]
-# made by: esej ?
-
-command /esej:wgrajskrypt <text> <text>:
-	permission: imxkvpi.wgrajskrypt.command
+# [ // Script \\ ] 
+# name: direct upload skript 
+# made by: esej 
+# version: 0.3 
+command /esej:installscript <text> <text>:
+	description: &6komenda umozliwiajaca instalowanie skryptow w minecraft
+	permission: esej.installscript.command
 	permission message: &cNie posiadasz uprawnien.
-	aliases: /ws, /wgraj, /wgrajskrypt
+	aliases: /installscript, /inscr, /ws, /wgraj, /wgrajskrypt
 	trigger:
 		if argument 1 is set:
 			if argument 2 is set:
 				if file "plugins/skript/scripts/%argument 2%.sk" doesn't exists:
 					create file "plugins/skript/scripts/%argument 2%.sk"
 					send "&8• &3» &6Utworzono plik. &8(%argument 2%.sk&8) &3« &8•" to the player
-				if argument 1 contain "https://":
+				if argument 1 contain "https://" or "http://":
+					if argument 1 contain "http://":
+						send "&8» &4Uwazaj! &cWitryna z ktorej probujesz zainstalowac skrypt nie posiada szyfrowania HyperText Transfer Protocol Secure" to the player
 					download from "%argument 1%" to "plugins/skript/scripts/%argument 2%.sk"
 					load script from "plugins/skript/scripts/%argument 2%.sk"
 					send "&8• &3» &6Skrypt zostal pomyslnie wgrany. &3« &8•" to the player
@@ -24,10 +28,11 @@ command /esej:wgrajskrypt <text> <text>:
 		if argument 1 is "author" or "autor":
 			send "&8• &3» &6Skrypt zostal stworzony przez &3esej &3« &8•" to the player
 			stop
-command /esej:usunskrypt <text>:
-	permission: imxkvpi.usunskrypt.command
-	permission message: &cNie posiadasz uprawnien
-	aliases: /us, /usunskrypt
+command /esej:deletescript <text>:
+	description: komenda usuwajaca skrypt z serwera minecraft
+	permission: esej.deletescript.command
+	permission message: &cNie posiadasz uprawnien!
+	aliases: /deletescript, /ds, /us, /usunskrypt
 	trigger:
 		if file "plugins/skript/scripts/%argument 1%.sk" exists:
 			delete file "plugins/skript/scripts/%argument 1%.sk"
