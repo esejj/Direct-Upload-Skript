@@ -1,7 +1,7 @@
 # [ // skrypt \\ ]
-# made by: imxkvpi ?
+# made by: esej ?
 
-command /imxkvpi:wgrajskrypt <text> <text>:
+command /esej:wgrajskrypt <text> <text>:
 	permission: imxkvpi.wgrajskrypt.command
 	permission message: &cNie posiadasz uprawnien.
 	aliases: /ws, /wgraj, /wgrajskrypt
@@ -22,9 +22,9 @@ command /imxkvpi:wgrajskrypt <text> <text>:
 		else:
 			send "&8• &3» &4Uzyj: &c/wgrajskrypt &8<&clink&8> &8<&cnazwa skryptu&8>" to the player
 		if argument 1 is "author" or "autor":
-			send "&8• &3» &6Skrypt zostal stworzony przez &3imxkvpi &3« &8•" to the player
+			send "&8• &3» &6Skrypt zostal stworzony przez &3esej &3« &8•" to the player
 			stop
-command /imxkvpi:usunskrypt <text>:
+command /esej:usunskrypt <text>:
 	permission: imxkvpi.usunskrypt.command
 	permission message: &cNie posiadasz uprawnien
 	aliases: /us, /usunskrypt
